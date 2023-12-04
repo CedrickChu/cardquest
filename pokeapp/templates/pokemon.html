@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% load static %}
+    <div class="container">
+        <div class="wrapper">
+            <h1 class='text-center'><strong>Pokemon Cards</strong></h1>
+            <div class="row">
+                {% for card in cards %}
+                    <div class="col-md-6 mb-4">
+                        {% if card.card_type%}
+                        <div class="card" id='{{card.card_type}}-card'>
+                            {% if card.image %}
+                                <img class="card-img-top" src="{{ card.image.url }}" alt="{{ card.name }}">
+                            {% else %}
+                                <img class="card-img-top" src="{% static 'images/placeholder.png' %}" alt="Placeholder">
+                            {% endif %}
+                                <div id = "{{card.card_type }}" class="card-body">
+                        {% endif%}
+                                    <h5 class="card-title"><strong>{{ card.name }}</strong></h5>
+                                    <p class="card-text"><strong>Rarity:</strong> {{ card.rarity }}</p>
+                                    <p class="card-text"><strong>HP:</strong> {{ card.hp }}</p>
+                                    <p class="card-text"><strong>Card Type:</strong> {{ card.card_type }}</p>
+                                    <p class="card-text"><strong>Attack:</strong> {{ card.attack }}</p>
+                                    <p class="card-text"><strong>Description:</strong> {{ card.description }}</p>
+                                    <p class="card-text"><strong>Weaknesses:</strong> {{ card.weakness }}</p>
+                                    <p class="card-text"><strong>Card Number:</strong> {{ card.card_number }}</p>
+                                    <p class="card-text"><strong>Release Date:</strong> {{ card.release_date }}</p>
+                                    <p class="card-text"><strong>Evolution Stage:</strong> {{ card.evolution_stage }}</p>
+                                    <p class="card-text"><strong>Abilities:</strong> {{ card.abilities }}</p>
+                                
+                                </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

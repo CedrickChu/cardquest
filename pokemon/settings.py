@@ -82,12 +82,16 @@ WSGI_APPLICATION = 'pokemon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pokemon',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',  
-        'PORT': '3306',       
+        'NAME': 'cedrickchu123$pokemon',
+        'USER': 'cedrickchu123',
+        'PASSWORD': 'Melone564',
+        'HOST': 'cedrickchu123.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'unix_socket': '/var/run/mysqld/mysqld.sock',
+        },
     }
+
 }
 
 

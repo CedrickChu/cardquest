@@ -1,0 +1,58 @@
+.content-center{
+    margin-top: 6em;
+}
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    color: aqua;
+    position: fixed;
+    margin-left: 10em;
+
+}
+
+ul.breadcrumb li {
+display: inline;
+font-size: 20px;
+
+
+}
+
+ul.breadcrumb li + li:before {
+    padding: 8px;
+    color: rgb(255, 255, 255);
+    content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    color: #ff5555;
+    text-decoration: underline;
+}
+.navbar-brand img{
+    height: 60px;
+    width: 60px;
+
+}
+nav{
+    height: 80px;
+}
+
+.custom-list li {
+        text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    ul.breadcrumb {
+        display: none;
+    }
+}
+@media screen and (min-width: 769px) {
+    ul.breadcrumb {
+        display: block;
+
+    }
+}

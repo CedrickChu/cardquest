@@ -8,6 +8,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         images_dir = 'pokeapp\static\images'
+        if not PokemonCard.objects.exists() or not Trainer.objects.exists():
+            self.clear_existing_data()
+            self.populate_pokemon_cards()
+            self.populate_trainers()
+
+            self.stdout.write(self.style.SUCCESS('Data successfully populated'))
+        else:
+            self.stdout.write(self.style.SUCCESS('Data already exists'))
+
         for card in PokemonCard.objects.all():
             image_path = os.path.join(images_dir, f'{card.name.lower()}.png')
 
@@ -18,9 +27,10 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f'Successfully added image for {card.name}'))
             else:
                 self.stdout.write(self.style.WARNING(f'Image file not found for {card.name}'))
-        self.populate_pokemon_cards()
-        self.populate_trainers()
-        self.stdout.write(self.style.SUCCESS('Data successfully populated'))
+
+    def clear_existing_data(self):
+        PokemonCard.objects.all().delete()
+        Trainer.objects.all().delete()
 
     def populate_pokemon_cards(self):
         card1 = PokemonCard(name="Pikachu", rarity="Rare",hp=60, card_type="Electric", attack="Thunder Shock",

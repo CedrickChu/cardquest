@@ -28,9 +28,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = 'django-insecure-t(4vl7ycz)mp+tr2=16tj7cj+&-wij)x)82o1f+k#83kdr02be'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['cedrickchu123.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,16 +82,12 @@ WSGI_APPLICATION = 'pokemon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cedrickchu123$pokemon',
-        'USER': 'cedrickchu123',
-        'PASSWORD': 'Melone564',
-        'HOST': 'cedrickchu123.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
-        'OPTIONS': {
-            'unix_socket': '/var/run/mysqld/mysqld.sock',
-        },
+        'NAME': 'pokemon',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',  
+        'PORT': '3306',       
     }
-
 }
 
 
@@ -130,8 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [BASE_DIR / "pokeapp/static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 # Default primary key field type

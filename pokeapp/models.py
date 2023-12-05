@@ -2,8 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class BaseModel(models.Model):
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
+ 
 
     class Meta:
         abstract = True
@@ -46,7 +45,7 @@ class PokemonCard(BaseModel):
     release_date = models.DateField(null=True, blank=True)
     evolution_stage = models.CharField(max_length=50, null=True, blank=True)
     abilities = models.CharField(max_length=100, null=True, blank=True)
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def show_info(self):
         return (

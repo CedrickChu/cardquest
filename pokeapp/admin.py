@@ -13,4 +13,3 @@ admin.site.register(Collection)
 
 
 
-# Register your models here.

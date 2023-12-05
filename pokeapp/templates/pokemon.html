@@ -12,7 +12,7 @@
                             {% if card.image %}
                                 <img class="card-img-top" src="{{ card.image.url }}" alt="{{ card.name }}">
                             {% else %}
-                                <img class="card-img-top" src="{% static 'images/placeholder.png' %}" alt="Placeholder">
+                                <img src="{% static 'images/'|add:card.name|lower %}.png" alt="{{ card.name }}">
                             {% endif %}
                                 <div id = "{{card.card_type }}" class="card-body">
                         {% endif%}
@@ -27,7 +27,7 @@
                                     <p class="card-text"><strong>Release Date:</strong> {{ card.release_date }}</p>
                                     <p class="card-text"><strong>Evolution Stage:</strong> {{ card.evolution_stage }}</p>
                                     <p class="card-text"><strong>Abilities:</strong> {{ card.abilities }}</p>
-                                
+
                                 </div>
                         </div>
                     </div>

@@ -108,6 +108,12 @@ body{
 #Fighting{
     background-color: #C03028;
 }
+#trainer-card{
+    border: 20px solid #6BAECE;
+}
+#trainer-card-body{
+    background-color: #6BAECE;;
+}
 .card:hover {
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }

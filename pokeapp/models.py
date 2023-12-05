@@ -2,8 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class BaseModel(models.Model):
- 
-
+    
     class Meta:
         abstract = True
 
@@ -71,6 +70,7 @@ class Trainer(BaseModel):
     birthdate = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(max_length=100, null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def show_info(self):
         return (

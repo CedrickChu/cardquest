@@ -27,6 +27,17 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f'Successfully added image for {card.name}'))
             else:
                 self.stdout.write(self.style.WARNING(f'Image file not found for {card.name}'))
+        
+        for trainer in Trainer.objects.all():
+            image_path = os.path.join(images_dir, f'{trainer.name.lower()}.png')
+
+            if os.path.exists(image_path):
+                with open(image_path, 'rb') as image_file:
+                    trainer.image.save(os.path.basename(image_path), File(image_file))
+
+                self.stdout.write(self.style.SUCCESS(f'Successfully added image for {trainer.name}'))
+            else:
+                self.stdout.write(self.style.WARNING(f'Image file not found for {trainer.name}'))
 
     def clear_existing_data(self):
         PokemonCard.objects.all().delete()

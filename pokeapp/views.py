@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import PokemonCard, Trainer
+from .models import PokemonCard, Trainer, Collection
 
 def pokemon(request):
     cards = PokemonCard.objects.all()
@@ -8,3 +8,8 @@ def pokemon(request):
 def trainer(request):
     trainers = Trainer.objects.all()
     return render(request, 'trainer.html', {'trainers': trainers})
+
+def collection(request):
+    collections = Collection.objects.all()
+    return render(request, 'collection.html', {'collections': collections})
+

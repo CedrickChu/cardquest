@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class='content-center'>
+    <div class='container'>
+        <div class='wrapper'>
+            <h1 class='text-center'>Collection</h1>
+            <div class="row">
+                {% for collection in collections %}
+                    <div class="col-md-6">
+                        <div class="card mb-3" id='collection-card'>
+                            <div class="card-body">
+                                <h5 class="card-title">Collection Date: {{ collection.collection_date }}</h5>
+                                <h6>Cards:</h6>
+                                {% for card in collection.card.all %}
+                                    <p>Card Name: {{ card.name }}</p>
+                                {% endfor %}
+                                <h6>Trainers:</h6>
+                                {% for trainer in collection.trainer.all %}
+                                    <p>Trainer Name: {{ trainer.name }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

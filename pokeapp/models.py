@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class BaseModel(models.Model):
-    
+   
     class Meta:
         abstract = True
 
@@ -84,8 +84,10 @@ class Trainer(BaseModel):
         return self.name
 
 class Collection(BaseModel):
-    card = models.ForeignKey(PokemonCard, blank=True, null=True, on_delete=models.CASCADE)
-    trainers = models.ForeignKey(Trainer, blank=True, null=True, on_delete=models.CASCADE)
+    card = models.ManyToManyField('PokemonCard', blank=True)
+    trainer = models.ManyToManyField('Trainer', blank=True)
     collection_date = models.DateTimeField(blank=True, null=True)
+    def __str__(self):
+        return f'{self.card} - {self.trainer} - {self.collection_date}'
 
 
